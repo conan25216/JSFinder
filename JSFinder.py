@@ -162,7 +162,6 @@ def find_subdomain(urls, mainurl):
 	return subdomains
 
 def find_by_url_deep(url):
-    print("walk into deep")
     html_raw = Extract_html(url)
 	if html_raw == None:
 		print("Fail to access " + url)
@@ -244,6 +243,7 @@ if __name__ == "__main__":
 			urls = find_by_url(args.url)
 			giveresult(urls, args.url)
 		else:
+            print("go to deep search")
 			urls = find_by_url_deep(args.url)
 			giveresult(urls, args.url)
 	else:
