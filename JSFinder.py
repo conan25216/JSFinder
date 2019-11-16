@@ -179,6 +179,7 @@ def find_by_url_deep(url):
         print("Fail to access " + url)
         return None
     html = BeautifulSoup(html_raw, "html.parser")
+    print("html", html)
     html_as = html.findAll("a")
     print("html_as", html_as)
     links = []
