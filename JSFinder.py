@@ -170,9 +170,11 @@ def find_subdomain(urls, mainurl):
 
 
 def find_by_url_deep(url):
+    import codecs
+    import sys
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
     print("into deep func")
     html_raw = Extract_html(url)
-    print("html_raw", html_raw)
     if html_raw == None:
         print("Fail to access " + url)
         return None
