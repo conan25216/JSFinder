@@ -170,6 +170,7 @@ def find_subdomain(urls, mainurl):
 
 
 def find_by_url_deep(url):
+    print("into deep func")
     html_raw = Extract_html(url)
     print("html_raw", html_raw)
     if html_raw == None:
