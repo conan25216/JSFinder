@@ -171,13 +171,16 @@ def find_subdomain(urls, mainurl):
 
 def find_by_url_deep(url):
     html_raw = Extract_html(url)
+    print("html_raw", html_raw)
     if html_raw == None:
         print("Fail to access " + url)
         return None
     html = BeautifulSoup(html_raw, "html.parser")
     html_as = html.findAll("a")
+    print("html_as", html_as)
     links = []
     for html_a in html_as:
+        print("html_a", html_a)
         src = html_a.get("href")
         if src == "" or src == None: continue
         link = process_url(url, src)
@@ -187,6 +190,7 @@ def find_by_url_deep(url):
     print("ALL Find " + str(len(links)) + " links")
     urls = []
     i = len(links)
+    print("links", links)
     for link in links:
         temp_urls = find_by_url(link)
         if temp_urls == None: continue
@@ -253,7 +257,6 @@ if __name__ == "__main__":
             urls = find_by_url(args.url)
             giveresult(urls, args.url)
         else:
-            print("go to deep")
             urls = find_by_url_deep(args.url)
             giveresult(urls, args.url)
     else:
