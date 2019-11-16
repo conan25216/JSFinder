@@ -103,7 +103,7 @@ def find_by_url(url, js = False):
 		except:
 			print("Please specify a URL like https://www.baidu.com")
 		html_raw = Extract_html(url)
-		if html_raw == None: 
+		if html_raw == None:
 			print("Fail to access " + url)
 			return None
 		#print(html_raw)
@@ -125,7 +125,7 @@ def find_by_url(url, js = False):
 			temp_urls = extract_URL(script_array[script])
 			if len(temp_urls) == 0: continue
 			for temp_url in temp_urls:
-				allurls.append(process_url(script, temp_url)) 
+				allurls.append(process_url(script, temp_url))
 		result = []
 		for singerurl in allurls:
 			url_raw = urlparse(url)
@@ -162,8 +162,9 @@ def find_subdomain(urls, mainurl):
 	return subdomains
 
 def find_by_url_deep(url):
+    print("walk into deep")
 	html_raw = Extract_html(url)
-	if html_raw == None: 
+	if html_raw == None:
 		print("Fail to access " + url)
 		return None
 	html = BeautifulSoup(html_raw, "html.parser")
@@ -189,7 +190,7 @@ def find_by_url_deep(url):
 		i -= 1
 	return urls
 
-	
+
 def find_by_file(file_path, js=False):
 	with open(file_path, "r") as fobject:
 		links = fobject.read().split("\n")
